@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Cadastro</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-image">
+            <img src="img/undraw_online_test_re_kyfx.svg" alt="foto-cadastro">
+
+        </div>
+        <div class="form">
+            <form action="#">
+                <div class="form-header">
+                    <div class="title">
+                        <h1>cadastre-se</h1>
+                    </div>
+                    <div class="login-button">
+                        <button><a href="./pagina-inicial.html">Entrar</a></button>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <div class="input-box">
+                        <label for="firstname">Primeiro nome</label>
+                        <input id="firstname" type="text" name="firstname" placeholder="Digite seu primeiro nome"
+                           onkeyup="apagaMensagemFirstName()" required>
+                            <span id="first-name"></span>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="lastname">Sobrenome</label>
+                        <input id="lastname" type="text" name="lastname" placeholder="Digite seu sobrenome" onkeyup="apagaMensagemLastName()" required>
+                        <span id="last-name"></span>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="email">Email</label>
+                        <input id="email" type="email" name="email" placeholder="Digite seu seu email" onkeyup="apagaMensagemEmail()" required>
+                        <span id="span-email"></span>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="number">Celular</label>
+                        <input id="number" type="tel" name="number" placeholder="(xx) xxxxx-xxxx" onkeyup="apagaMensagemPhone()" required>
+                        <span id="span-phone"></span>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="password">Senha</label>
+                        <input id="password" type="password" name="password" placeholder="Digite sua senha"
+                            onkeyup="validarSenhaForca()" min="8" max="50" required>
+                        <span id="impri-force"></span>
+                        <span id="force"></span>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="confirmpassword">Confirme sua senha</label>
+                        <input id="confirmpassword" type="password" name="confirmpassword"
+                            placeholder="Digite sua senha" onkeyup="apagaMensagemConfirmaSenha()" required>
+                            <span id="impri-force-confir"></span>    
+                    </div>
+                </div>
+                <div class="gender-inputs">
+                    <div class="gender-title">
+                        <h6>Gênero</h6>
+                    </div>
+                    <div class="gender-group" id="gender-group">
+                        <div class="gender-input">
+                            <input type="radio" name="gender" value="Feminino" id="female">
+                            <label for="female">Feminino</label>
+                        </div>
+                        <div class="gender-input">
+                            <input type="radio" name="gender" value="Masculino" id="male">
+                            <label for="male">Masculino</label>
+                        </div>
+                        <div class="gender-input">
+                            <input type="radio" name="gender" value="Outros" id="others">
+                            <label for="others">Outros</label>
+                        </div>
+                        <div class="gender-input">
+                            <input type="radio" name="gender" value="Prefiro não dizer" id="none">
+                            <label for="none">Prefiro não dizer</label>
+                        </div>
+                    </div>
+                    <span id="span-genero"></span>
+                </div>
+                <div class="continue-button" id="btn-continue-button">
+                    <button><a href="./pagina-inicial.html">Continuar</a></button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="script/javascript.js"></script>
+</body>
+
+</html>
