@@ -25,7 +25,7 @@ describe('Teste no formulario de cadastro', () => {
         cy.get('#btn-continue-button > button > a').should('be.visible').click()
         cy.contains('span','Digite seu nome').should('have.css','text-decoration','none solid rgb(255, 0, 0)')
     })
-    it('Prenchendo cadastri faltando sobre nome', () =>{
+    it('Prenchendo cadastro faltando sobre nome', () =>{
         cy.get('#firstname').should('be.visible').type('Luana').should('have.value','Luana')
         cy.get('#lastname').should('be.visible').should('have.value','')
         cy.get('#email').type('luna@email.com').should('have.value', 'luna@email.com')
@@ -35,5 +35,16 @@ describe('Teste no formulario de cadastro', () => {
         cy.get('input[type="radio"][value="Feminino"]').check().should('be.checked')
         cy.get('#btn-continue-button > button > a').should('be.visible').click()
         cy.contains('span','Digite seu sobrenome').should('have.css','text-decoration','none solid rgb(255, 0, 0)')
+    })
+    it('Prenchendo cadastro faltando email',()=>{
+        cy.get('#firstname').should('be.visible').type('Roberval').should('have.value','Roberval')
+        cy.get('#lastname').should('be.visible').type('Carrisca').should('have.value','Carrisca')
+        cy.get('#email').should('be.visible').should('have.value','')
+        cy.get('#number').type('998877445566').should('have.value','998877445566')
+        cy.get('#password').type('Leo4654@').should('have.value','Leo4654@')
+        cy.get('#confirmpassword').type('Leo4654@').should('have.value','Leo4654@')
+        cy.get('input[type="radio"][value="Outros"]').check().should('be.checked')
+        cy.get('#btn-continue-button > button > a').should('be.visible').click()
+        cy.contains('span','Digite seu email').should('have.css','text-decoration','none solid rgb(255, 0, 0)')
     })
 })
