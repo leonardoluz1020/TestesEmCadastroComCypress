@@ -69,7 +69,7 @@ describe('Teste no formulario de cadastro', () => {
         cy.get('#btn-continue-button > button > a').should('be.visible').click()
         cy.contains('span','Por favor preencher a senha !').should('have.css','text-decoration','none solid rgb(255, 0, 0)')
     })
-    it.only('Preenchimento cadastro sem confirmação de senha', ()=> {
+    it('Preenchimento cadastro sem confirmação de senha', ()=> {
         cy.get('#firstname').should('be.visible').type('Cristino').should('have.value','Cristino')
         cy.get('#lastname').should('be.visible').type('vieira').should('have.value','vieira')
         cy.get('#email').should('be.visible').type('vieira@email.com').should('have.value','vieira@email.com')
@@ -79,5 +79,15 @@ describe('Teste no formulario de cadastro', () => {
         cy.get('input[type="radio"][value="Prefiro não dizer"]').check().should('be.checked')
         cy.get('#btn-continue-button > button > a').should('be.visible').click()
         cy.contains('span','Por favor confirmar a senha !').should('have.css','text-decoration','none solid rgb(255, 0, 0)')
+    })
+    it('Preenchimento cadastro sem Gênero', ()=>{
+        cy.get('#firstname').should('be.visible').type('Lacorunha').should('have.value','Lacorunha')
+        cy.get('#lastname').should('be.visible').type('Bezerra').should('have.value','Bezerra')
+        cy.get('#email').should('be.visible').type('lacorunha@email.com').should('have.value','lacorunha@email.com')
+        cy.get('#number').should('be.visible').type('995511335577') .should('have.value','995511335577')
+        cy.get('#password').type('lacorunha1020@').should('have.value','lacorunha1020@')
+        cy.get('#confirmpassword').type('lacorunha1020@').should('have.value','lacorunha1020@')
+        cy.get('#btn-continue-button > button > a').should('be.visible').click()
+        cy.contains('span','Preencha o genero').should('have.css','text-decoration','none solid rgb(255, 0, 0)')
     })
 })
