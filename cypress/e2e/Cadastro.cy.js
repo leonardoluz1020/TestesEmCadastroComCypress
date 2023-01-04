@@ -124,6 +124,7 @@ describe('Teste no formulario de cadastro', () => {
         cy.get('input[type="radio"][value="Feminino"]').check().should('be.checked')
         cy.contains('span', 'Forte').should('have.css', 'text-decoration', 'none solid rgb(127, 255, 0)')
         cy.get('#btn-continue-button > button > a').should('be.visible').click()
+        cy.get('#firstname').should('have.value','')
     })
     it('Preenchimento cadastro com senha excelente', () => {
         cy.get('#firstname').should('be.visible').type('Bigode').should('have.value', 'Bigode')
@@ -135,6 +136,18 @@ describe('Teste no formulario de cadastro', () => {
         cy.get('input[type="radio"][value="Masculino"]').check().should('be.checked')
         cy.contains('span', 'Excelente').should('have.css', 'text-decoration', 'none solid rgb(0, 128, 0)')
         cy.get('#btn-continue-button > button > a').should('be.visible').click()
+        cy.get('#firstname').should('have.value','')
     })
-
+    it('Preenchimento cadastro com senhas diferentes', () => {
+        cy.get('#firstname').should('be.visible').type('Indio').should('have.value', 'Indio')
+        cy.get('#lastname').should('be.visible').type('cabelo').should('have.value', 'cabelo')
+        cy.get('#email').should('be.visible').type('cabelo@email.com').should('have.value', 'cabelo@email.com')
+        cy.get('#number').should('be.visible').type('995511335577').should('have.value', '995511335577')
+        cy.get('#password').type('saoPau10@').should('have.value', 'saoPau10@')
+        cy.get('#confirmpassword').type('saoPau10').should('have.value', 'saoPau10')
+        cy.get('input[type="radio"][value="Masculino"]').check().should('be.checked')
+        cy.contains('span', 'Excelente').should('have.css', 'text-decoration', 'none solid rgb(0, 128, 0)')
+        cy.get('#btn-continue-button > button > a').should('be.visible').click()
+        cy.contains('span', 'senhas não conferem !').should('have.css', 'text-decoration', 'none solid rgb(255, 0, 0)')                
+    })
 })
