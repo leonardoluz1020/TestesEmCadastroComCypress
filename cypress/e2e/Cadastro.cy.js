@@ -25,7 +25,7 @@ describe('Teste no formulario de cadastro', () => {
         cy.get('#btn-continue-button > button > a').should('be.visible').click()
         cy.contains('span','Digite seu nome').should('have.css','text-decoration','none solid rgb(255, 0, 0)')
     })
-    it('Preenchendo cadastro faltando sobre nome', () =>{
+    it('Preenchendo cadastro faltando sobre sobrenome', () =>{
         cy.get('#firstname').should('be.visible').type('Luana').should('have.value','Luana')
         cy.get('#lastname').should('be.visible').should('have.value','')
         cy.get('#email').type('luna@email.com').should('have.value', 'luna@email.com')
@@ -47,7 +47,7 @@ describe('Teste no formulario de cadastro', () => {
         cy.get('#btn-continue-button > button > a').should('be.visible').click()
         cy.contains('span','Digite seu email').should('have.css','text-decoration','none solid rgb(255, 0, 0)')
     })
-    it.only('Preenchendo cadastro faltando o celular', ()=>{
+    it('Preenchendo cadastro faltando o celular', ()=>{
         cy.get('#firstname').should('be.visible').type('Dalila').should('have.value','Dalila')
         cy.get('#lastname').should('be.visible').type('faustino').should('have.value','faustino')
         cy.get('#email').should('be.visible').type('dalila@email.com').should('have.value','dalila@email.com')
@@ -57,5 +57,16 @@ describe('Teste no formulario de cadastro', () => {
         cy.get('input[type="radio"][value="Outros"]').check().should('be.checked')
         cy.get('#btn-continue-button > button > a').should('be.visible').click()
         cy.contains('span','Digite seu numero').should('have.css','text-decoration','none solid rgb(255, 0, 0)')
+    })
+    it('Preenchendo cadastro faltando a senha', ()=> {
+        cy.get('#firstname').should('be.visible').type('Trales').should('have.value','Trales')
+        cy.get('#lastname').should('be.visible').type('monteiro').should('have.value','monteiro')
+        cy.get('#email').should('be.visible').type('tralles@email.com').should('have.value','tralles@email.com')
+        cy.get('#number').should('be.visible').type('995511335577') .should('have.value','995511335577')
+        cy.get('#password').should('have.value','')
+        cy.get('#confirmpassword').type('Tralles4654@').should('have.value','Tralles4654@')
+        cy.get('input[type="radio"][value="Prefiro não dizer"]').check().should('be.checked')
+        cy.get('#btn-continue-button > button > a').should('be.visible').click()
+        cy.contains('span','Por favor preencher a senha !').should('have.css','text-decoration','none solid rgb(255, 0, 0)')
     })
 })
